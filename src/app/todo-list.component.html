@@ -1,0 +1,61 @@
+<!-- h2>Todos</h2>
+
+<button (click)="addTodo()">Add Todo</button>
+
+<ul>
+  <li *ngFor="let todo of todos">
+    <input type="checkbox" [checked]="todo.completed" (change)="updateTodoStatus(todo, $event.target!.checked)">
+    <input type="checkbox" [checked]="todo.completed" (change)="updateTodoStatus(todo, ($event.target as HTMLInputElement).checked)">
+
+    <span [class.completed]="todo.completed">{{ todo.title }}</span>
+    <button (click)="deleteTodo(todo)">Delete</button>
+  </li>
+</ul -->
+
+<!-- h2>Todos</h2>
+
+<button (click)="addTodo()">Add Todo</button>
+
+<ul>
+  <li *ngFor="let todo of todos">
+    <input type="checkbox" [checked]="todo.completed" (change)="updateTodoStatus(todo, $event)">
+    <span [class.completed]="todo.completed">{{ todo.title }}</span>
+    <button (click)="deleteTodo(todo)">Delete</button>
+  </li>
+</ul-->
+
+<!--h2>Todos</h2>
+
+<button (click)="addTodo()">Add Todo</button> 
+
+<ul>
+  <li *ngFor="let todo of todos">
+    <span *ngIf="!todo.editMode">{{ todo.title }}</span>
+    <input *ngIf="todo.editMode" type="text" [(ngModel)]="todo.title">
+    <button (click)="toggleEditMode(todo)">Edit</button>
+    <button (click)="updateTodoStatus(todo)">Toggle Status</button>
+    <button (click)="deleteTodo(todo)">Delete</button>
+  </li>
+</ul-->
+
+<h2>Todos</h2>
+
+
+<button (click)="addTodo()">Create New Todo</button>
+
+<ul>
+    <li *ngFor="let todo of todos">
+      <span>{{ todo.number}} - </span>
+      <span *ngIf="!todo.editMode">{{ todo.title }}</span>
+      <input *ngIf="todo.editMode" type="text" [(ngModel)]="todo.title">
+      <input type="checkbox" [checked]="todo.completed" (change)="toggleEditMode(todo)">
+      <button *ngIf="todo.editMode" (click)="saveTodoStatus(todo)">Click to Save</button>
+      <button (click)="updateTodoStatus(todo)">Click to Update</button>
+      <button (click)="deleteTodo(todo)">Delete</button>
+    </li>
+  </ul>
+
+  
+
+
+
